@@ -119,38 +119,33 @@ function updateCounter() {
 
     const now = new Date();
 
-    let difference = now - relationshipDate;
+    let year = now.getFullYear();
+    let month = now.getMonth();
 
-    if (difference < 0) {
-        difference = 0;
+    // Monthsary is every 24th
+    let nextMonthsary = new Date(year, month, 24, 0, 0, 0);
+
+    // If the 24th has already passed, go to next month
+    if (now >= nextMonthsary) {
+        nextMonthsary = new Date(year, month + 1, 24, 0, 0, 0);
     }
 
+    const difference = nextMonthsary - now;
+
     const seconds = Math.floor(difference / 1000);
-
     const minutes = Math.floor(seconds / 60);
-
     const hours = Math.floor(minutes / 60);
-
     const days = Math.floor(hours / 24);
 
-
     const remainingHours = hours % 24;
-
     const remainingMinutes = minutes % 60;
-
     const remainingSeconds = seconds % 60;
 
-
     document.getElementById("days").textContent = days;
-
     document.getElementById("hours").textContent = remainingHours;
-
     document.getElementById("minutes").textContent = remainingMinutes;
-
     document.getElementById("seconds").textContent = remainingSeconds;
-
 }
-
 
 setInterval(updateCounter, 1000);
 
