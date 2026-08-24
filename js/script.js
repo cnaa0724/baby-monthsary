@@ -18,7 +18,7 @@
    YYYY-MM-DD
 */
 
-const relationshipDate = new Date("2024-04-11T00:00:00");
+const relationshipDate = new Date("2026-07-24T00:00:00");
 
 
 /* =========================================
