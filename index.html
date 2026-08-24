@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Baby ❤️</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Floating Hearts -->
+    <div id="hearts"></div>
+
+    <!-- MUSIC -->
+    <audio id="music" loop>
+        <source src="music/our-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="musicButton" class="music-button" onclick="toggleMusic()">
+        🎵
+    </button>
+
+    <!-- ============================= -->
+    <!-- START SCREEN -->
+    <!-- ============================= -->
+
+    <section id="startScreen" class="screen active">
+
+        <div class="start-content">
+
+            <div class="tiny-heart">♥</div>
+
+            <p class="small-text">
+                A little something for
+            </p>
+
+            <h1>
+                Baby
+            </h1>
+
+            <p class="subtitle">
+                Our little monthsary adventure
+            </p>
+
+            <div class="date">
+                Every 24th ❤️
+            </div>
+
+            <button class="main-button" onclick="startAdventure()">
+                Start Our Adventure
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- SECTION 1 -->
+    <!-- ============================= -->
+
+    <section id="counterSection" class="screen">
+
+        <div class="section-container">
+
+            <p class="eyebrow">
+                CHAPTER ONE
+            </p>
+
+            <h2>
+                Look how far<br>
+                we've come. ❤️
+            </h2>
+
+            <p class="section-description">
+                Every day with you has become one of my favorite days.
+            </p>
+
+            <div class="counter-box">
+
+                <div class="counter-item">
+                    <strong id="days">0</strong>
+                    <span>Days</span>
+                </div>
+
+                <div class="counter-item">
+                    <strong id="hours">0</strong>
+                    <span>Hours</span>
+                </div>
+
+                <div class="counter-item">
+                    <strong id="minutes">0</strong>
+                    <span>Minutes</span>
+                </div>
+
+                <div class="counter-item">
+                    <strong id="seconds">0</strong>
+                    <span>Seconds</span>
+                </div>
+
+            </div>
+
+            <p class="counter-note">
+                And I'm still choosing you. ❤️
+            </p>
+
+            <button class="main-button" onclick="nextSection('memorySection')">
+                Continue
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- SECTION 2 MEMORY -->
+    <!-- ============================= -->
+
+    <section id="memorySection" class="screen">
+
+        <div class="section-container">
+
+            <p class="eyebrow">
+                CHAPTER TWO
+            </p>
+
+            <h2>
+                Little pieces<br>
+                of us. 📸
+            </h2>
+
+            <p class="section-description">
+                Tap the photos. There might be something waiting behind them.
+            </p>
+
+            <div class="photo-grid">
+
+                <div class="photo-card" onclick="openPhoto(1)">
+                    <img src="images/photo1.jpg" alt="Our memory">
+                    <div class="photo-overlay">
+                        <span>Tap me ❤️</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" onclick="openPhoto(2)">
+                    <img src="images/photo2.jpg" alt="Our memory">
+                    <div class="photo-overlay">
+                        <span>Tap me ❤️</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" onclick="openPhoto(3)">
+                    <img src="images/photo3.jpg" alt="Our memory">
+                    <div class="photo-overlay">
+                        <span>Tap me ❤️</span>
+                    </div>
+                </div>
+
+                <div class="photo-card" onclick="openPhoto(4)">
+                    <img src="images/photo4.jpg" alt="Our memory">
+                    <div class="photo-overlay">
+                        <span>Tap me ❤️</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="main-button" onclick="nextSection('heartSection')">
+                I found them all
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- PHOTO POPUP -->
+    <!-- ============================= -->
+
+    <div id="photoModal" class="modal">
+
+        <div class="modal-content">
+
+            <button class="close-button" onclick="closePhoto()">
+                ×
+            </button>
+
+            <img id="modalImage" src="" alt="Memory">
+
+            <h3 id="modalTitle">
+                A little memory ❤️
+            </h3>
+
+            <p id="modalText"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- SECTION 3 HEART GAME -->
+    <!-- ============================= -->
+
+    <section id="heartSection" class="screen">
+
+        <div class="section-container">
+
+            <p class="eyebrow">
+                CHAPTER THREE
+            </p>
+
+            <h2>
+                Choose a heart. 💕
+            </h2>
+
+            <p class="section-description">
+                There are three little messages waiting for you.
+            </p>
+
+            <div class="heart-container">
+
+                <button class="choice-heart" onclick="chooseHeart(1)">
+                    💗
+                </button>
+
+                <button class="choice-heart" onclick="chooseHeart(2)">
+                    💜
+                </button>
+
+                <button class="choice-heart" onclick="chooseHeart(3)">
+                    💙
+                </button>
+
+            </div>
+
+            <div id="heartMessage" class="hidden-message"></div>
+
+            <button
+                id="heartContinue"
+                class="main-button hidden"
+                onclick="nextSection('loveSection')">
+
+                Continue
+                <span>→</span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- SECTION 4 THINGS I LOVE -->
+    <!-- ============================= -->
+
+    <section id="loveSection" class="screen">
+
+        <div class="section-container">
+
+            <p class="eyebrow">
+                CHAPTER FOUR
+            </p>
+
+            <h2>
+                Things I love<br>
+                about you. ❤️
+            </h2>
+
+            <div id="loveCard" class="love-card">
+
+                <div class="love-number">
+                    01
+                </div>
+
+                <div id="loveText">
+                    Your smile.
+                </div>
+
+            </div>
+
+            <button class="main-button" onclick="nextLove()">
+                Tell me more
+                <span>→</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- SECTION 5 ENVELOPE -->
+    <!-- ============================= -->
+
+    <section id="letterSection" class="screen">
+
+        <div class="section-container">
+
+            <p class="eyebrow">
+                CHAPTER FIVE
+            </p>
+
+            <h2>
+                I wrote something<br>
+                for you. 💌
+            </h2>
+
+            <p class="section-description">
+                Tap the envelope.
+            </p>
+
+            <div class="envelope-wrapper" onclick="openLetter()">
+
+                <div id="envelope" class="envelope">
+
+                    <div class="envelope-flap"></div>
+
+                    <div class="envelope-body">
+
+                        <div class="envelope-heart">
+                            ♥
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="letter" class="letter">
+
+                <h3>
+                    To my Baby ❤️
+                </h3>
+
+                <p>
+                    Happy monthsary, Baby.
+                </p>
+
+                <p>
+                    I don't think I say it enough, but I am incredibly
+                    grateful that I get to have you in my life.
+                </p>
+
+                <p>
+                    Thank you for all the little things you do,
+                    for the memories we've created, and for every
+                    ordinary moment that somehow becomes special
+                    simply because you're there.
+                </p>
+
+                <p>
+                    No matter how many months pass, I hope we never
+                    stop choosing each other.
+                </p>
+
+                <p>
+                    Here's to more dates, more laughter, more memories,
+                    more adventures, and more monthsaries.
+                </p>
+
+                <p class="signature">
+                    I love you, Baby. ❤️
+                </p>
+
+            </div>
+
+            <button
+                id="letterContinue"
+                class="main-button hidden"
+                onclick="nextSection('finalSection')">
+
+                One last surprise
+                <span>→</span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- FINAL -->
+    <!-- ============================= -->
+
+    <section id="finalSection" class="screen">
+
+        <div class="final-content">
+
+            <div class="final-heart">
+                ❤️
+            </div>
+
+            <p class="eyebrow">
+                ONE LAST THING
+            </p>
+
+            <h2>
+                You are still<br>
+                my favorite person.
+            </h2>
+
+            <p class="final-message">
+                Happy Monthsary, Baby.
+            </p>
+
+            <p class="final-small">
+                Every 24th reminds me that I get another month
+                with you — and that is something I'll always be
+                thankful for.
+            </p>
+
+            <div class="infinite-heart">
+                ∞ ❤️ ∞
+            </div>
+
+            <button class="main-button" onclick="restartSite()">
+                Start Again
+                <span>↻</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
